@@ -1,0 +1,8 @@
+SYS_LIBRARIES = -lXm -lXt -lSM -lICE -lX11
+
+AllTarget(ask_user hello_dialog modal reason)
+
+NormalProgramTarget(ask_user,ask_user.o,,,)
+NormalProgramTarget(hello_dialog,hello_dialog.o,,,)
+NormalProgramTarget(modal,modal.o,,,)
+NormalProgramTarget(reason,reason.o,,,)

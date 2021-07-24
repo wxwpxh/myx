@@ -1,0 +1,12 @@
+# Type "xmkmf" to turn this Imakefile into a Makefile.  Then type
+# "make Makefiles" to turn all the subdirectories' Imakefiles into
+# Makefiles... then type "make" and each subdir will get "made".
+
+#define IHaveSubdirs
+#define PassCDebugFlags 'CDEBUGFLAGS=$(CDEBUGFLAGS)'
+
+SUBDIRS = chapter-2 chapter-4 chapter-5 chapter-6 chapter-7 chapter-8 chapter-9 chapter-10 chapter-11 chapter-12 chapter-13 chapter-14 chapter-15 chapter-16 chapter-17 chapter-18 chapter-19 chapter-20 chapter-21 chapter-22 chapter-23 chapter-24 chapter-25 chapter-26 chapter-27 AppendixA
+
+MakeSubdirs($(SUBDIRS))
+DependSubdirs($(SUBDIRS))
+CleanSubdirs($(SUBDIRS))

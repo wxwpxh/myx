@@ -1,0 +1,8 @@
+SYS_LIBRARIES = -lXm -lXt -lSM -lICE -lX11
+
+AllTarget(combo_cb date_combo date_combo2 simple_combobox)
+
+NormalProgramTarget(combo_cb,combo_cb.o,,,)
+NormalProgramTarget(date_combo,date_combo.o,,,)
+NormalProgramTarget(date_combo2,date_combo2.o,,,)
+NormalProgramTarget(simple_combobox,simple_combobox.o,,,)

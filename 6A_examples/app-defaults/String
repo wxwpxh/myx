@@ -1,0 +1,15 @@
+*.fontType: FONT_IS_FONT
+*pb1.MY_TAG.fontName: -*-courier-*-r-*--*-120-*=MY_TAG
+*pb2.MY_TAG.fontName: -*-courier-*-r-*--*-140-*=MY_TAG
+*pb3.MY_TAG.fontName: -*-courier-*-r-*--*-180-*=MY_TAG
+*pb1.renderTable: MY_TAG
+*pb2.renderTable: MY_TAG
+*pb3.renderTable: MY_TAG
+!*.fontType: FONT_IS_FONT
+!*.fixed.fontName: fixed
+!*.ANOTHER_TAG.fontName: -*-courier-*-r-*--*-140-*
+!*pb1.MY_TAG.fontName: -*-courier-*-r-*--*-120-*
+!*pb3.MY_TAG.fontName: -*-courier-*-r-*--*-180-
+!*pb1.renderTable: MY_TAG
+!*pb2.renderTable: fixed, ANOTHER_TAG
+!*pb3.renderTable: fixed, MY_TAG

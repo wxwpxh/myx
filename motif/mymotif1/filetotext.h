@@ -1,0 +1,2 @@
+
+void ReadFiletoXmtext(char *,Widget );

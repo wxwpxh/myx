@@ -1,0 +1,8 @@
+SYS_LIBRARIES = -lXm -lXt -lSM -lICE -lX11
+
+AllTarget(load_filtered_passwd multi_font parse_file string)
+
+NormalProgramTarget(load_filtered_passwd,load_filtered_passwd.o,,,)
+NormalProgramTarget(multi_font,multi_font.o,,,)
+NormalProgramTarget(parse_file,parse_file.o,,,)
+NormalProgramTarget(string,string.o,,,)

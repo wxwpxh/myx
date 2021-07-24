@@ -1,0 +1,8 @@
+SYS_LIBRARIES = -lXm -lXt -lSM -lICE -lX11
+
+AllTarget(action_area help_text modify_btn question)
+
+NormalProgramTarget(action_area,action_area.o,,,)
+NormalProgramTarget(help_text,help_text.o,,,)
+NormalProgramTarget(modify_btn,modify_btn.o,,,)
+NormalProgramTarget(question,question.o,,,)

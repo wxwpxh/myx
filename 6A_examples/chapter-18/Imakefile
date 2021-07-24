@@ -1,0 +1,16 @@
+SYS_LIBRARIES = -lXm -lXt -lSM -lICE -lX11
+
+AllTarget(allcaps check_zip cut_paste editor file_browser password prompt_phone search_replace search_text simple_text text_box wprint)
+
+NormalProgramTarget(allcaps,allcaps.o,,,)
+NormalProgramTarget(check_zip,check_zip.o,,,)
+NormalProgramTarget(cut_paste,cut_paste.o,,,)
+NormalProgramTarget(editor,editor.o,,,)
+NormalProgramTarget(file_browser,file_browser.o,,,)
+NormalProgramTarget(password,password.o,,,)
+NormalProgramTarget(prompt_phone,prompt_phone.o,,,)
+NormalProgramTarget(search_replace,search_replace.o,,,)
+NormalProgramTarget(search_text,search_text.o,,,)
+NormalProgramTarget(simple_text,simple_text.o,,,)
+NormalProgramTarget(text_box,text_box.o,,,)
+NormalProgramTarget(wprint,wprint.o,,,)

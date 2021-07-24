@@ -1,0 +1,9 @@
+SYS_LIBRARIES = -lXm -lXt -lSM -lICE -lX11
+
+AllTarget(date_spinbox date_spinbox_cb numeric_simplespin simplespin_value string_simplespin)
+
+NormalProgramTarget(date_spinbox,date_spinbox.o,,,)
+NormalProgramTarget(date_spinbox_cb,date_spinbox_cb.o,,,)
+NormalProgramTarget(numeric_simplespin,numeric_simplespin.o,,,)
+NormalProgramTarget(simplespin_value,simplespin_value.o,,,)
+NormalProgramTarget(string_simplespin,string_simplespin.o,,,)

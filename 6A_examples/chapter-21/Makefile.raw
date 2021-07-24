@@ -1,0 +1,13 @@
+PROGRAMS = copy_by_name copy_retrieve
+
+CFLAGS=
+INCLUDES = -I/usr/Motif21/include -I/usr/X11R6/include
+LIBS= -L/usr/Motif21/lib -L/usr/X11R6/lib -lXm -lXt -lSM -lICE -lX11
+
+all: $(PROGRAMS)
+
+.c: ; $(CC) $(CFLAGS) $(INCLUDES) $@.c $(LIBS) -o $@
+
+clean::
+	-rm -f $(PROGRAMS) *.o
+

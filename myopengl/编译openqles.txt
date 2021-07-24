@@ -1,0 +1,1 @@
+ gcc ./*.c -o "XXX" -L/usr/lib/x86_64-linux-gnu/ -lGLESv1_CM -lglut 

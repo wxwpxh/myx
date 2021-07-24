@@ -1,0 +1,7 @@
+*background: grey75
+*.fontType: FONT_IS_FONT
+*bold.fontName: -*-courier-bold-r-*--18-*
+*medium.fontName: -*-courier-bold-r-*--18-*
+*XmPushButton.renderTable: bold
+*XmLabelGadget.renderTable: bold
+*XmList.renderTable: medium

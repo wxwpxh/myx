@@ -1,0 +1,7 @@
+SYS_LIBRARIES = -lXm -lXt -lSM -lICE -lX11
+
+AllTarget(simple_notebook)
+AllTarget(tabbed_notebook)
+
+NormalProgramTarget(simple_notebook,simple_notebook.o,,,)
+NormalProgramTarget(tabbed_notebook,tabbed_notebook.o,,,)

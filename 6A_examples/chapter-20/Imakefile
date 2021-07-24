@@ -1,0 +1,11 @@
+SYS_LIBRARIES = -lXm -lXt -lSM -lICE -lX11
+
+AllTarget(icon_pixmap resize_shell set_minimum wm_protocols wm_save session wm_delete)
+
+NormalProgramTarget(icon_pixmap,icon_pixmap.o,,,)
+NormalProgramTarget(resize_shell,resize_shell.o,,,)
+NormalProgramTarget(set_minimum,set_minimum.o,,,)
+NormalProgramTarget(wm_protocols,wm_protocols.o,,,)
+NormalProgramTarget(wm_save,wm_save.o,,,)
+NormalProgramTarget(wm_delete,wm_delete.o,,,)
+NormalProgramTarget(session,session.o,,,)

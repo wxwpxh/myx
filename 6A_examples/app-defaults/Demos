@@ -1,0 +1,16 @@
+Demos*.fontType: FONT_IS_FONT
+Demos*.mediumRendition.fontName: -*-courier-medium-r-*--12-*
+Demos*.boldRendition.fontName: -*-new century schoolbook-bold-r-*--12-*
+Demos*XmList.renderTable: mediumRendition
+Demos*XmText.renderTable: mediumRendition
+Demos*XmTextField.renderTable: mediumRendition
+Demos*XmScale.renderTable: boldRendition
+Demos*XmLabel.renderTable: boldRendition
+Demos*XmLabelGadget.renderTable: boldRendition
+Demos*XmCascadeButton.renderTable: boldRendition
+Demos*XmCascadeButtonGadget.renderTable: boldRendition
+Demos*XmPushButton.renderTable: boldRendition
+Demos*XmPushButtonGadget.renderTable: boldRendition
+Demos*XmToggleButton.renderTable: boldRendition
+Demos*XmToggleButtonGadget.renderTable:boldRendition
+Demos*background: grey75

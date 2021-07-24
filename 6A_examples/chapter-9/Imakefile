@@ -1,0 +1,6 @@
+SYS_LIBRARIES = -lXm -lXt -lSM -lICE -lX11
+
+AllTarget(outline detail)
+
+NormalProgramTarget(outline,outline.o,,,)
+NormalProgramTarget(detail,detail.o,,,)

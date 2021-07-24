@@ -1,0 +1,6 @@
+SYS_LIBRARIES = -lXm -lXt -lSM -lICE -lX11
+
+AllTarget(xshowbitmap xmemo)
+
+NormalProgramTarget(xshowbitmap,xshowbitmap.o,,,)
+NormalProgramTarget(xmemo,xmemo.o,,,)

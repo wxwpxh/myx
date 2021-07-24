@@ -1,0 +1,135 @@
+This distribution contains the source for the example programs in the Motif
+Programmer's Manual, Volume 6A in O'Reilly & Associates' series on the X 
+Window System. The programs are written by Dan Heller, Paula Ferguson,
+Antony Fountain, and Jeremy Huxtable. Copyright 2000 O'Reilly & Associates.
+The programs are not in the public domain, but they are freely distributable 
+without licensing fees. These programs are provided without guarantee or warrantee
+expressed or implied.
+
+These examples require Motif 2.1. They have been compiled using the X11R6
+versions of the Xt and X libraries.  
+
+Distribution Contents
+---------------------
+
+The examples are in subdirectories named after the chapters in 
+the book where the examples are described.  The book is not required to
+use or build the example programs, although the corresponding
+chapters do add quite a bit of explanation about what's going on.
+
+The top-level directory of this distribution contains this README file,
+an Imakefile, the example program subdirectories, and an app-defaults
+subdirectory.  Most of the examples in this distribution have the same
+application class for purposes of the application defaults file.  The 
+class name is "Demos", so the defaults file is named "Demos".  This file, 
+as well as a few other application defaults files for selected examples, 
+are provided in the app-defaults directory.  To run the programs using
+these defaults files, simple set the XAPPLRESDIR environment variable to
+point to the app-defaults directory (or install the files in 
+/usr/X11R6/lib/app-defaults).
+
+The example program subdirectories each contain an Imakefile and a
+Makefile.raw file for building the programs, as described shortly.
+The subdirectories contain the following programs:
+
+chapter-2: hello.c
+
+chapter-4: cmd_area.c dynapix.c show_pix.c
+
+chapter-5: ask_user.c hello_dialog.c modal.c reason.c 
+
+chapter-6: file_sel.c prompt_dlg.c select_dlg.c show_files.c
+
+chapter-7: action_area.c help_text.c map_dlg.c modify_btn.c question.c
+
+chapter-8: attach.c corners.c entry_cb.c form_corners.c frame.c paned_win1.c
+	   paned_win2.c proc_traversal.c rowcol.c spreadsheet.c text_entry.c
+	   text_form.c tictactoe.c unit_types.c
+
+chapter-9: detail.c outline.c
+
+chapter-10: app_scroll.c getusers.c monitor_cb.c simple_cb.c traversal.c
+
+chapter-11: color_draw.c draw2.c drawing.c free_hand.c
+
+chapter-12: arrow.c arrow_timer.c drawn.c multi_click.c pixmaps.c pushb.c
+	    radio_box.c simple_radio.c toggle.c toggle_box.c xcal.c
+
+chapter-13: alpha_list.c browse.c search_list.c simple_list.c
+
+chapter-14: combo_cb.c date_combo.c date_combo2.c simple_combobox.c
+
+chapter-15: date_spinbox.c date_spinbox_cb.c numeric_simplespin.c 
+	    simplespin_value.c string_simplespin.c
+
+chapter-16: color_slide.c simple_scale.c tick_marks.c
+
+chapter-17: simple_notebook.c tabbed_notebook.c
+
+chapter-18: allcaps.c check_zip.c cut_paste.c editor.c file_browser.c 
+            password.c prompt_phone.c search_replace.c select_text.c simple_text.c 
+	    text_box.c wprint.c
+
+chapter-19: build_menu.c build_option.c choice_popup.c file_menu.c popups.c
+	    reset_sensitive.c simple_option.c simple_popup.c simple_pullright.c
+
+chapter-20: icon_pixmap.c resize_shell.c session.c set_minimum.c wm_delete.c
+	    wm_protocol.c wm_save.c
+
+chapter-21: copy_by_name.c copy_retrieve.c
+
+chapter-22: editor_dnd.c editor_help.c file_manager.c file_mmnger2.c
+
+chapter-23: utm.c
+
+chapter-24: rendered_list.c
+
+chapter-25: load_filtered_passwd.c multi_font.c parse_file.c string.c
+
+chapter-26: app_box.c app_safe_box.c
+
+chapter-27: busy.c simple_help.c warn_msg.c working.c
+
+Compiling the Programs
+----------------------
+
+This distribution is designed to build under Motif 1.2 and X11R6.
+
+We were not able to get the Imakefiles to work with our configuration
+of Motif 2.1 and X11R6 -- your mileage may vary. If you can get them
+to work, then the easiest way to build the programs is to use
+imake, a program supplied with the X11 distribution that
+generates proper Makefiles on a wide variety of systems. imake
+uses configuration files called Imakefiles that are included with the
+examples.  If you have imake, you should type the following in
+the top-level directory that contains the examples:
+
+% xmkmf
+% make Makefiles
+% make
+
+If you have any problems building Makefiles using imake, you can try
+using the Makefile.raw files in each directory.  These files are
+currently set up to use a Motif installation in /usr/Motif21 and an
+X11R6 installation in /usr/X11R6.  If you have install Motif and X in
+other places, you will need to modify the Makefile.raw files.  Once you
+have done that, you should be able to type:
+
+% make -f Makefile.raw
+
+in each subdirectory to make the programs.  If you have a standard compiler
+(or you at least know your way around the quirks in your compiler),
+you shouldn't have a problem with this method.  However, this may not be
+enough for all compilers as some require additional options,
+include and library path specifications, dependencies, etc.
+
+If all else fails, you can try to build each file manually using the 
+simple command:
+
+% cc filename.c -o filename -lXm -lXt -lSM -lICE -lX11
+
+A few of the examples use regular expression functions that do pattern-
+matching on strings.  For these programs, some SYSV machines may have
+to add the -lPW library to the LOCAL_LIBRARIES part of the Imakefiles
+or the LIBS directive for all Makefile.raw files.
+

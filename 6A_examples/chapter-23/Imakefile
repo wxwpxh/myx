@@ -1,0 +1,5 @@
+SYS_LIBRARIES = -lXm -lXt -lSM -lICE -lX11
+
+AllTarget(utm)
+
+NormalProgramTarget(utm,utm.o,,,)

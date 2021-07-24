@@ -1,0 +1,16 @@
+PROGRAMS = icon_pixmap resize_shell set_minimum wm_protocols wm_save session wm_delete
+
+CFLAGS=
+MHOME=/fs81/objtrees/sparc-sun-sunos5.6/xd6.0af/tree/Motif2
+XHOME=/fs81/OSF/X11
+
+INCLUDES = -I$(MHOME)/include -I$(XHOME)/include
+LIBS= -L$(MHOME)/lib -L$(XHOME)/lib -lXm -lXt -lSM -lICE -lX11 -lXp -lXext
+
+all: $(PROGRAMS)
+
+.c: ; $(CC) $(CFLAGS) $(INCLUDES) $@.c $(LIBS) -o $@
+
+clean::
+	-rm -f $(PROGRAMS) *.o
+

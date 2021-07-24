@@ -1,0 +1,13 @@
+PROGRAMS = attach corners entry_cb form_corners frame paned_win1 paned_win2 proc_traverse rowcol spreadsheet text_entry text_form tictactoe unit_types
+
+CFLAGS=
+INCLUDES = -I/usr/Motif21/include -I/usr/X11R6/include
+LIBS= -L/usr/Motif21/lib -L/usr/X11R6/lib -lXm -lXt -lSM -lICE -lX11
+
+all: $(PROGRAMS)
+
+.c: ; $(CC) $(CFLAGS) $(INCLUDES) $@.c $(LIBS) -o $@
+
+clean::
+	-rm -f $(PROGRAMS) *.o
+

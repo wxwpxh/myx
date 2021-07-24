@@ -1,0 +1,7 @@
+SYS_LIBRARIES = -lXm -lXt -lSM -lICE -lX11
+
+AllTarget(cmd_area dynapix show_pix)
+
+NormalProgramTarget(cmd_area,cmd_area.o,,,)
+NormalProgramTarget(dynapix,dynapix.o,,,)
+NormalProgramTarget(show_pix,show_pix.o,,,)

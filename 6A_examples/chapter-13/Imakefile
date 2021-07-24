@@ -1,0 +1,8 @@
+SYS_LIBRARIES = -lXm -lXt -lSM -lICE -lX11
+
+AllTarget(alpha_list browse search_list simple_list)
+
+NormalProgramTarget(alpha_list,alpha_list.o,,,)
+NormalProgramTarget(browse,browse.o,,,)
+NormalProgramTarget(search_list,search_list.o,,,)
+NormalProgramTarget(simple_list,simple_list.o,,,)
