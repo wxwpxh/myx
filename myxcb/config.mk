@@ -11,8 +11,8 @@ CXX	=	g++
 UIL	=	/usr/bin/uil
 X11INC	=	/usr/include
 X11LIB	=	/usr/lib
-MOTIFINC=	/usr/include
-MOTIFLIB=	/usr/lib
+MOTIFINC=	/opt/local/lesstif/include
+MOTIFLIB=	/opt/local/lesstif/lib
 LIBS	=	-lXm -lXaw -lXt -lXmu -lX11 -lXext -lxcb  
 
 #==============================================================

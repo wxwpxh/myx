@@ -1,0 +1,264 @@
+
+
+
+XPutImage(3X11)           XLIB FUNCTIONS          XPutImage(3X11)
+
+
+NNAAMMEE
+       XPutImage, XGetImage, XGetSubImage - transfer images
+
+SSYYNNTTAAXX
+       XPutImage(_d_i_s_p_l_a_y, _d, _g_c, _i_m_a_g_e, _s_r_c___x, _s_r_c___y, _d_e_s_t___x,
+       _d_e_s_t___y, _w_i_d_t_h, _h_e_i_g_h_t)
+               Display *_d_i_s_p_l_a_y;
+               Drawable _d;
+               GC _g_c;
+               XImage *_i_m_a_g_e;
+               int _s_r_c___x, _s_r_c___y;
+               int _d_e_s_t___x, _d_e_s_t___y;
+               unsigned int _w_i_d_t_h, _h_e_i_g_h_t;
+
+       XImage *XGetImage(_d_i_s_p_l_a_y, _d, _x, _y, _w_i_d_t_h, _h_e_i_g_h_t,
+       _p_l_a_n_e___m_a_s_k, _f_o_r_m_a_t)
+               Display *_d_i_s_p_l_a_y;
+               Drawable _d;
+               int _x, _y;
+               unsigned int _w_i_d_t_h, _h_e_i_g_h_t;
+               unsigned long _p_l_a_n_e___m_a_s_k;
+               int _f_o_r_m_a_t;
+
+       XImage *XGetSubImage(_d_i_s_p_l_a_y, _d, _x, _y, _w_i_d_t_h, _h_e_i_g_h_t,
+       _p_l_a_n_e___m_a_s_k, _f_o_r_m_a_t, _d_e_s_t___i_m_a_g_e, _d_e_s_t___x,
+                            _d_e_s_t___y)
+             Display *_d_i_s_p_l_a_y;
+             Drawable _d;
+             int _x, _y;
+             unsigned int _w_i_d_t_h, _h_e_i_g_h_t;
+             unsigned long _p_l_a_n_e___m_a_s_k;
+             int _f_o_r_m_a_t;
+             XImage *_d_e_s_t___i_m_a_g_e;
+             int _d_e_s_t___x, _d_e_s_t___y;
+
+AARRGGUUMMEENNTTSS
+       _d         Specifies the drawable.
+
+       _d_e_s_t___i_m_a_g_e
+                 Specifies the destination image.
+
+       _d_e_s_t___x
+       _d_e_s_t___y    Specify the x and y coordinates, which are rela­
+                 tive to the origin of the drawable and are the
+                 coordinates of the subimage or which are rela­
+                 tive to the origin of the destination rectangle,
+                 specify its upper-left corner, and determine
+                 where the subimage is placed in the destination
+                 image.
+
+       _d_i_s_p_l_a_y   Specifies the connection to the X server.
+
+       _f_o_r_m_a_t    Specifies the format for the image.  You can
+                 pass _X_Y_P_i_x_m_a_p or _Z_P_i_x_m_a_p.
+
+
+
+X Version 11               Release 6.3                          1
+
+
+
+
+
+XPutImage(3X11)           XLIB FUNCTIONS          XPutImage(3X11)
+
+
+       _g_c        Specifies the GC.
+
+       _i_m_a_g_e     Specifies the image you want combined with the
+                 rectangle.
+
+       _p_l_a_n_e___m_a_s_k
+                 Specifies the plane mask.
+
+       _s_r_c___x     Specifies the offset in X from the left edge of
+                 the image defined by the _X_I_m_a_g_e structure.
+
+       _s_r_c___y     Specifies the offset in Y from the top edge of
+                 the image defined by the _X_I_m_a_g_e structure.
+
+       _w_i_d_t_h
+       _h_e_i_g_h_t    Specify the width and height of the subimage,
+                 which define the dimensions of the rectangle.
+
+       _x
+       _y         Specify the x and y coordinates, which are rela­
+                 tive to the origin of the drawable and define
+                 the upper-left corner of the rectangle.
+
+DDEESSCCRRIIPPTTIIOONN
+       The _X_P_u_t_I_m_a_g_e function combines an image with a rectangle
+       of the specified drawable.  The section of the image
+       defined by the src_x, src_y, width, and height arguments
+       is drawn on the specified part of the drawable.  If
+       _X_Y_B_i_t_m_a_p format is used, the depth of the image must be
+       one, or a _B_a_d_M_a_t_c_h error results.  The foreground pixel in
+       the GC defines the source for the one bits in the image,
+       and the background pixel defines the source for the zero
+       bits.  For _X_Y_P_i_x_m_a_p and _Z_P_i_x_m_a_p, the depth of the image
+       must match the depth of the drawable, or a _B_a_d_M_a_t_c_h error
+       results.
+
+       If the characteristics of the image (for example,
+       byte_order and bitmap_unit) differ from what the server
+       requires, _X_P_u_t_I_m_a_g_e automatically makes the appropriate
+       conversions.
+
+       This function uses these GC components: function, plane-
+       mask, subwindow-mode, clip-x-origin, clip-y-origin, and
+       clip-mask.  It also uses these GC mode-dependent compo­
+       nents: foreground and background.
+
+       _X_P_u_t_I_m_a_g_e can generate _B_a_d_D_r_a_w_a_b_l_e, _B_a_d_G_C, _B_a_d_M_a_t_c_h, and
+       _B_a_d_V_a_l_u_e errors.
+
+       The _X_G_e_t_I_m_a_g_e function returns a pointer to an _X_I_m_a_g_e
+       structure.  This structure provides you with the contents
+       of the specified rectangle of the drawable in the format
+       you specify.  If the format argument is _X_Y_P_i_x_m_a_p, the
+       image contains only the bit planes you passed to the
+
+
+
+X Version 11               Release 6.3                          2
+
+
+
+
+
+XPutImage(3X11)           XLIB FUNCTIONS          XPutImage(3X11)
+
+
+       plane_mask argument.  If the plane_mask argument only
+       requests a subset of the planes of the display, the depth
+       of the returned image will be the number of planes
+       requested.  If the format argument is _Z_P_i_x_m_a_p, _X_G_e_t_I_m_a_g_e
+       returns as zero the bits in all planes not specified in
+       the plane_mask argument.  The function performs no range
+       checking on the values in plane_mask and ignores extrane­
+       ous bits.
+
+       _X_G_e_t_I_m_a_g_e returns the depth of the image to the depth mem­
+       ber of the _X_I_m_a_g_e structure.  The depth of the image is as
+       specified when the drawable was created, except when get­
+       ting a subset of the planes in _X_Y_P_i_x_m_a_p format, when the
+       depth is given by the number of bits set to 1 in
+       plane_mask.
+
+       If the drawable is a pixmap, the given rectangle must be
+       wholly contained within the pixmap, or a _B_a_d_M_a_t_c_h error
+       results.  If the drawable is a window, the window must be
+       viewable, and it must be the case that if there were no
+       inferiors or overlapping windows, the specified rectangle
+       of the window would be fully visible on the screen and
+       wholly contained within the outside edges of the window,
+       or a _B_a_d_M_a_t_c_h error results.  Note that the borders of the
+       window can be included and read with this request.  If the
+       window has backing-store, the backing-store contents are
+       returned for regions of the window that are obscured by
+       noninferior windows.  If the window does not have backing-
+       store, the returned contents of such obscured regions are
+       undefined.  The returned contents of visible regions of
+       inferiors of a different depth than the specified window's
+       depth are also undefined.  The pointer cursor image is not
+       included in the returned contents.  If a problem occurs,
+       _X_G_e_t_I_m_a_g_e returns NULL.
+
+       _X_G_e_t_I_m_a_g_e can generate _B_a_d_D_r_a_w_a_b_l_e, _B_a_d_M_a_t_c_h, and _B_a_d_V_a_l_u_e
+       errors.
+
+       The _X_G_e_t_S_u_b_I_m_a_g_e function updates dest_image with the
+       specified subimage in the same manner as _X_G_e_t_I_m_a_g_e.  If
+       the format argument is _X_Y_P_i_x_m_a_p, the image contains only
+       the bit planes you passed to the plane_mask argument.  If
+       the format argument is _Z_P_i_x_m_a_p, _X_G_e_t_S_u_b_I_m_a_g_e returns as
+       zero the bits in all planes not specified in the
+       plane_mask argument.  The function performs no range
+       checking on the values in plane_mask and ignores extrane­
+       ous bits.  As a convenience, _X_G_e_t_S_u_b_I_m_a_g_e returns a
+       pointer to the same _X_I_m_a_g_e structure specified by
+       dest_image.
+
+       The depth of the destination _X_I_m_a_g_e structure must be the
+       same as that of the drawable.  If the specified subimage
+       does not fit at the specified location on the destination
+       image, the right and bottom edges are clipped.  If the
+
+
+
+X Version 11               Release 6.3                          3
+
+
+
+
+
+XPutImage(3X11)           XLIB FUNCTIONS          XPutImage(3X11)
+
+
+       drawable is a pixmap, the given rectangle must be wholly
+       contained within the pixmap, or a _B_a_d_M_a_t_c_h error results.
+       If the drawable is a window, the window must be viewable,
+       and it must be the case that if there were no inferiors or
+       overlapping windows, the specified rectangle of the window
+       would be fully visible on the screen and wholly contained
+       within the outside edges of the window, or a _B_a_d_M_a_t_c_h
+       error results.  If the window has backing-store, then the
+       backing-store contents are returned for regions of the
+       window that are obscured by noninferior windows.  If the
+       window does not have backing-store, the returned contents
+       of such obscured regions are undefined.  The returned con­
+       tents of visible regions of inferiors of a different depth
+       than the specified window's depth are also undefined.  If
+       a problem occurs, _X_G_e_t_S_u_b_I_m_a_g_e returns NULL.
+
+       _X_G_e_t_S_u_b_I_m_a_g_e can generate _B_a_d_D_r_a_w_a_b_l_e, _B_a_d_G_C, _B_a_d_M_a_t_c_h,
+       and _B_a_d_V_a_l_u_e errors.
+
+DDIIAAGGNNOOSSTTIICCSS
+       _B_a_d_D_r_a_w_a_b_l_e
+                 A value for a Drawable argument does not name a
+                 defined Window or Pixmap.
+
+       _B_a_d_G_C     A value for a GContext argument does not name a
+                 defined GContext.
+
+       _B_a_d_M_a_t_c_h  An _I_n_p_u_t_O_n_l_y window is used as a Drawable.
+
+       _B_a_d_M_a_t_c_h  Some argument or pair of arguments has the cor­
+                 rect type and range but fails to match in some
+                 other way required by the request.
+
+       _B_a_d_V_a_l_u_e  Some numeric value falls outside the range of
+                 values accepted by the request.  Unless a spe­
+                 cific range is specified for an argument, the
+                 full range defined by the argument's type is
+                 accepted.  Any argument defined as a set of
+                 alternatives can generate this error.
+
+SSEEEE AALLSSOO
+       _X_l_i_b _- _C _L_a_n_g_u_a_g_e _X _I_n_t_e_r_f_a_c_e
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+X Version 11               Release 6.3                          4
+
+

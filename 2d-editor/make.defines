@@ -1,0 +1,84 @@
+###
+# 2d-gx make.defines
+#
+# This file should be included in each Make file used with 2d-gx
+#
+# Dependencies on the following environment variables:
+#  TARGET - machine-os
+# 
+# The syntax of this file is for use with  'gmake' (GNU version of make)
+# 
+# See the text for a discussion of this file and its syntax.
+###
+TARGET_SPARC_SUNOS	= sun4u-SunOS
+TARGET_i86_SOLARIS	= i86pc-SunOS
+TARGET_i86_LINUX	= i86-Linux
+
+ifdef GxHOME
+	GxSRCDIR = ${GxHOME}/src
+else
+	GxSRCDIR = ../src
+endif
+
+vpath %.h ${GxSRCDIR}/include
+vpath %.c ${GxSRCDIR}
+
+#
+# Configure for Linux running on a PC
+#
+ifeq ($(TARGET),$(TARGET_i86_LINUX))
+  X11INC	= -I/usr/include/X11
+  X11LIB	= -L/usr/X11R6/lib
+  INCS      = -I${GxSRCDIR}/include
+
+  CC		= gcc
+  OPTS		= -ansi -Wall -g
+endif
+
+#
+# Configure for Solaris running on a Sparc
+#
+ifeq ($(TARGET),$(TARGET_SPARC_SUNOS))
+  X11INC	= -I/usr/openwin/include
+  X11LIB	= -L/usr/openwin/lib
+  INCS      = -I${GxSRCDIR}/include
+
+  CC		= gcc
+  OPTS		= -g -Wall -ansi
+endif
+
+#
+# Configure for Solaris running on a PC
+#
+ifeq ($(TARGET),$(TARGET_i86_SOLARIS))
+  X11INC	= -I/usr/openwin/include
+  X11LIB	= -L/usr/openwin/lib
+  INCS      = -I${GxSRCDIR}/include
+
+  CC		= gcc
+  OPTS		= -ansi -Wall -g
+endif
+
+#
+# Force all Makefiles using this file to check the configuration
+# of the environment before building the target
+#
+all: make-env-check make-target
+
+#
+# Check to environment variables need to build are set
+#
+make-env-check:
+    ifndef TARGET
+	  @echo 
+	  @echo "TARGET not defined!"
+	  @echo "Set environment variable TARGET to: `../make.target`"
+	  @echo 
+	  @exit 1
+    endif
+
+clean:
+	@rm -f *~ *.o $(PROGRAM)
+#
+# end of make.defines
+#

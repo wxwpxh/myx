@@ -1,6 +1,3 @@
-/*
-gcc -o t3 t3.c   `pkg-config --libs --cflags xaw7 xt xext`
-*/
 #include <stdio.h>
 #include <stdlib.h>
 

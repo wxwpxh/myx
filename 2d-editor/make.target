@@ -1,0 +1,25 @@
+#!/bin/sh
+#
+# Simple script to determine machine type and OS. Used to configure 
+# the appropriate environment for building an application.
+#
+# See the text for a discussion of this file and its syntax
+###
+machine=`(uname -m) 2>/dev/null`
+_system=`(uname -s) 2>/dev/null` 
+
+#
+# we are not concerned with which Intel processor (386, 486, 686)
+# only that it is an x86. So strip the first number identifing 
+# the processor
+#
+case $machine in
+  i?86*)
+      machine=i86
+      ;;
+esac
+
+
+
+echo $machine-$_system
+exit 0

@@ -1,6 +1,6 @@
  /*
    Simple Xlib application drawing a box in a window.
-   To Compile: gcc  -Wall -o testx testx.c -lX11 -lm
+   To Compile: gcc -O2 -Wall -o testx testx.c -lX11 -lm
  */
  
  #include<X11/Xlib.h>
